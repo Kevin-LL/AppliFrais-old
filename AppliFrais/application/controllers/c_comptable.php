@@ -67,7 +67,7 @@ class C_comptable extends CI_Controller {
 				// on mémorise le mois de la fiche en cours de modification
 				$this->session->set_userdata('mois', $mois);
 				// obtention de l'id utilisateur courant
-				$idVisiteur = $this->session->userdata('idUser');
+				$idVisiteur = $params[1];
 
 				$this->a_comptable->voirFicheComptable($idVisiteur, $mois);
 			}
@@ -161,7 +161,7 @@ class C_comptable extends CI_Controller {
 			elseif ($action == 'validFiche')
 			{	$this->load->model('a_comptable');
 
-				// obtention du mois de la fiche à signer qui doit avoir été transmis
+				// obtention du mois de la fiche à valider qui doit avoir été transmis
 				// en second paramètre
 				$mois = $params[0];
 				// obtention de l'id utilisateur courant et du mois concerné
@@ -174,7 +174,7 @@ class C_comptable extends CI_Controller {
 			elseif ($action == 'refuFiche')
 			{	$this->load->model('a_comptable');
 
-				// obtention du mois de la fiche à signer qui doit avoir été transmis
+				// obtention du mois de la fiche à refuser qui doit avoir été transmis
 				// en second paramètre
 				$mois = $params[0];
 				// obtention de l'id utilisateur courant et du mois concerné
@@ -183,7 +183,7 @@ class C_comptable extends CI_Controller {
 
 				// ... et on revient à fichesComptable
 			}
-			else								// dans tous les autres cas, on envoie la vue par défaut pour l'erreur 404
+			else	// dans tous les autres cas, on envoie la vue par défaut pour l'erreur 404
 			{
 				show_404();
 			}

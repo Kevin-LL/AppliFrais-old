@@ -32,7 +32,7 @@
 				
 				echo 
 				'<tr>
-					<td class="date">'.anchor('c_comptable/voirFicheComptable/'.$uneFiche['mois'], $uneFiche['mois'],  'title="Consulter la fiche"').'</td>
+			<td class="date">'.anchor('c_comptable/voirFicheComptable/'.$uneFiche['mois'].'/'.$uneFiche['idVisiteur'], $uneFiche['mois'], $uneFiche['idVisiteur'], 'title="Consulter la fiche"').'</td>
 					<td class="libelle">'.$uneFiche['idVisiteur'].'&nbsp;'.$uneFiche['nom'].'</td>
 					<td class="libelle">'.$uneFiche['libelle'].'</td>
 					<td class="montant">'.$uneFiche['montantValide'].'</td>

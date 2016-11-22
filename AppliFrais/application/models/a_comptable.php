@@ -65,6 +65,7 @@ class A_comptable extends CI_Model {
 
 		$data['numAnnee'] = substr( $mois,0,4);
 		$data['numMois'] = substr( $mois,4,2);
+		$data['idVisiteur'] = $idVisiteur;
 		$data['lesFraisHorsForfait'] = $this->dataAccess->getLesLignesHorsForfait($idVisiteur,$mois);
 		$data['lesFraisForfait'] = $this->dataAccess->getLesLignesForfait($idVisiteur,$mois);		
 
