@@ -26,8 +26,8 @@
 				$denyLink = '';
 
 				if ($uneFiche['idEtat'] == 'CL') {
-					$validLink = anchor('c_comptable/validFiche/'.$uneFiche['mois'], 'Valider',  'title="Valider la fiche"');
-					$denyLink = anchor('c_comptable/refuFiche/'.$uneFiche['mois'], 'Refuser',  'title="Refuser la fiche"  onclick="return confirm(\'Voulez-vous vraiment refuser cette fiche ?\');"');
+					$validLink = anchor('c_comptable/validFiche/'.$uneFiche['mois'].'/'.$uneFiche['idVisiteur'], 'Valider',  'title="Valider la fiche"');
+					$denyLink = anchor('c_comptable/refuFiche/'.$uneFiche['mois'].'/'.$uneFiche['idVisiteur'], 'Refuser',  'title="Refuser la fiche"  onclick="return confirm(\'Voulez-vous vraiment refuser cette fiche ?\');"');
 				}
 				
 				echo 
