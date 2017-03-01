@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Contrôleur du module VISITEUR de l'application
+ * Contrôleur du module COMPTABLE de l'application
 */
 class C_comptable extends CI_Controller {
 
@@ -11,7 +11,7 @@ class C_comptable extends CI_Controller {
 	 * le comportement habituel de la fonction index. Grâce à _remap, on dispose
 	 * d'une fonction unique capable d'accepter un nombre variable de paramètres.
 	 *
-	 * @param $action : l'action demandée par le visiteur
+	 * @param $action : l'action demandée par le comptable
 	 * @param $params : les éventuels paramètres transmis pour la réalisation de cette action
 	*/
 	public function _remap($action, $params = array())
@@ -31,7 +31,7 @@ class C_comptable extends CI_Controller {
 			// Aiguillage selon l'action demandée 
 			// CI a traité l'URL au préalable de sorte à toujours renvoyer l'action "index"
 			// même lorsqu'aucune action n'est exprimée
-			if ($action == 'index')				// index demandé : on active la fonction accueil du modèle visiteur
+			if ($action == 'index')				// index demandé : on active la fonction accueil du modèle comptable
 			{
 				$this->load->model('a_comptable');
 
@@ -40,7 +40,7 @@ class C_comptable extends CI_Controller {
 
 				$this->a_comptable->accueil();
 			}
-			elseif ($action == 'fichesComptable')		// fichesComptable demandé : on active la fonction fichesComptable du modèle visiteur
+			elseif ($action == 'fichesComptable')		// fichesComptable demandé : on active la fonction fichesComptable du modèle comptable
 			{
 				$this->load->model('a_comptable');
 
@@ -87,7 +87,7 @@ class C_comptable extends CI_Controller {
 
 				$this->a_comptable->modFiche($idVisiteur, $mois);
 			}
-			elseif ($action == 'signeFiche') 	// signeFiche demandé : on active la fonction signeFiche du modèle visiteur ...
+			elseif ($action == 'signeFiche') 	// signeFiche demandé : on active la fonction signeFiche du modèle comptable ...
 			{	// TODO : contrôler la validité du second paramètre (mois de la fiche à modifier)
 				$this->load->model('a_comptable');
 
@@ -101,13 +101,13 @@ class C_comptable extends CI_Controller {
 				// ... et on revient à fichesComptable
 				$this->a_comptable->fichesComptable($idVisiteur, "La fiche $mois a été signée. <br/>Pensez à envoyer vos justificatifs afin qu'elle soit traitée par le service comptable rapidement.");
 			}
-			elseif ($action == 'majForfait') // majFraisForfait demandé : on active la fonction majFraisForfait du modèle visiteur ...
+			elseif ($action == 'majForfait') // majFraisForfait demandé : on active la fonction majFraisForfait du modèle comptable ...
 			{	// TODO : conrôler que l'obtention des données postées ne rend pas d'erreurs
 				// TODO : dans la dynamique de l'application, contrôler que l'on vient bien de modFiche
 				
 				$this->load->model('a_comptable');
 
-				// obtention de l'id du visiteur et du mois concerné
+				// obtention de l'id du comptable et du mois concerné
 				$idVisiteur = $this->session->userdata('idUser');
 				$mois = $this->session->userdata('mois');
 
@@ -119,13 +119,13 @@ class C_comptable extends CI_Controller {
 				// ... et on revient en modification de la fiche
 				$this->a_comptable->modFiche($idVisiteur, $mois, 'Modification(s) des éléments forfaitisés enregistrée(s) ...');
 			}
-			elseif ($action == 'ajouteFrais') // ajouteLigneFrais demandé : on active la fonction ajouteLigneFrais du modèle visiteur ...
+			elseif ($action == 'ajouteFrais') // ajouteLigneFrais demandé : on active la fonction ajouteLigneFrais du modèle comptable ...
 			{	// TODO : conrôler que l'obtention des données postées ne rend pas d'erreurs
 				// TODO : dans la dynamique de l'application, contrôler que l'on vient bien de modFiche
 				
 				$this->load->model('a_comptable');
 
-				// obtention de l'id du visiteur et du mois concerné
+				// obtention de l'id du comptable et du mois concerné
 				$idVisiteur = $this->session->userdata('idUser');
 				$mois = $this->session->userdata('mois');
 
@@ -141,13 +141,13 @@ class C_comptable extends CI_Controller {
 				// ... et on revient en modification de la fiche
 				$this->a_comptable->modFiche($idVisiteur, $mois, 'Ligne "Hors forfait" ajoutée ...');				
 			}
-			elseif ($action == 'supprFrais') // suppprLigneFrais demandé : on active la fonction suppprLigneFrais du modèle visiteur ...
+			elseif ($action == 'supprFrais') // suppprLigneFrais demandé : on active la fonction suppprLigneFrais du modèle comptable ...
 			{	// TODO : contrôler la validité du second paramètre (mois de la fiche à modifier)
 				// TODO : dans la dynamique de l'application, contrôler que l'on vient bien de modFiche
 			
 				$this->load->model('a_comptable');
 
-				// obtention de l'id du visiteur et du mois concerné
+				// obtention de l'id du comptable et du mois concerné
 				$idVisiteur = $this->session->userdata('idUser');
 				$mois = $this->session->userdata('mois');
 				
@@ -180,9 +180,6 @@ class C_comptable extends CI_Controller {
 				// obtention de l'id utilisateur courant et du mois concerné
 				$idVisiteur = $params[1];
 				$this->a_comptable->refuFiche($idVisiteur, $mois);
-
-				// ... et on revient à fichesComptable
-				$this->a_comptable->fichesComptable($idVisiteur, "La fiche $mois a été refusée.");
 			}
 			else	// dans tous les autres cas, on envoie la vue par défaut pour l'erreur 404
 			{

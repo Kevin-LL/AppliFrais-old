@@ -12,21 +12,41 @@
 		  
 			<fieldset>
 				<legend>Eléments forfaitisés</legend>
+				<table>
+				<tr>
+				<th></th>
+				<th>Quantite</th>
+				<th>Montant</th>
+				<th>Total</th>
+				<tr>
 				<?php
 					foreach ($lesFraisForfait as $unFrais)
 					{
 						$idFrais = $unFrais['idfrais'];
 						$libelle = $unFrais['libelle'];
 						$quantite = $unFrais['quantite'];
+						$montant = $unFrais['montant'];
 
 						echo 
-						'<p>
-							<label for="'.$idFrais.'">'.$libelle.'</label>
-							<input type="text" id="'.$idFrais.'" name="lesFrais['.$idFrais.']" size="10" maxlength="5" value="'.$quantite.'" />
-						</p>
+						'
+						<tr>
+							<td>
+								<label for="'.$idFrais.'">'.$libelle.'</label>
+							</td>
+							<td>
+								<input id="'.$idFrais.'" type="text" name="lesFrais['.$idFrais.']" size="10" maxlength="5" value="'.$quantite.'" onchange="calculTotal(this)" />
+							</td>
+							<td>
+								<label id="montant'.$idFrais.'" for="'.$idFrais.'">'.$montant.'</label>
+							</td>
+							<td>
+								<label id="total'.$idFrais.'" for="'.$idFrais.'"></label>
+							</td>
+						<tr>
 						';
 					}
 				?>
+				<table>
 			</fieldset>
 		</div>
 		<div class="piedForm">

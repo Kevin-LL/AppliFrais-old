@@ -12,7 +12,7 @@ class A_comptable extends CI_Model {
     }
 
 	/**
-	 * Accueil du visiteur
+	 * Accueil du comptable
 	 * La fonction intègre un mécanisme de contrôle d'existence des 
 	 * fiches de frais sur les 6 derniers mois. 
 	 * Si l'une d'elle est absente, elle est créée
@@ -33,15 +33,15 @@ class A_comptable extends CI_Model {
 		foreach ($lesMois as $unMois){
 			if(!$this->dataAccess->ExisteFiche($idVisiteur, $unMois)) $this->dataAccess->creeFiche($idVisiteur, $unMois);
 		}
-		// envoie de la vue accueil du visiteur
+		// envoie de la vue accueil du comptable
 		$this->templates->load('t_comptable', 'v_comAccueil');
 	}
 	
 	/**
-	 * Liste les fiches existantes du visiteur connecté et 
+	 * Liste les fiches existantes du comptable connecté et 
 	 * donne accès aux fonctionnalités associées
 	 *
-	 * @param $idVisiteur : l'id du visiteur 
+	 * @param $idVisiteur : l'id du comptable 
 	 * @param $message : message facultatif destiné à notifier l'utilisateur du résultat d'une action précédemment exécutée
 	*/
 	public function fichesComptable ($idVisiteur, $message=null)
@@ -57,7 +57,7 @@ class A_comptable extends CI_Model {
 	/**
 	 * Présente le détail de la fiche sélectionnée 
 	 * 
-	 * @param $idVisiteur : l'id du visiteur 
+	 * @param $idVisiteur : l'id du comptable 
 	 * @param $mois : le mois de la fiche à modifier 
 	*/
 	public function voirFicheComptable($idVisiteur, $mois)
@@ -76,7 +76,7 @@ class A_comptable extends CI_Model {
 	 * Présente le détail de la fiche sélectionnée et donne 
 	 * accés à la modification du contenu de cette fiche.
 	 * 
-	 * @param $idVisiteur : l'id du visiteur 
+	 * @param $idVisiteur : l'id du comptable 
 	 * @param $mois : le mois de la fiche à modifier 
 	 * @param $message : message facultatif destiné à notifier l'utilisateur du résultat d'une action précédemment exécutée
 	*/
@@ -95,7 +95,7 @@ class A_comptable extends CI_Model {
 	/**
 	 * Signe une fiche de frais en changeant son état
 	 * 
-	 * @param $idVisiteur : l'id du visiteur 
+	 * @param $idVisiteur : l'id du comptable 
 	 * @param $mois : le mois de la fiche à signer
 	*/
 	public function signeFiche($idVisiteur, $mois)
@@ -116,12 +116,15 @@ class A_comptable extends CI_Model {
 	{	// TODO : s'assurer que les paramètres reçus sont cohérents avec ceux mémorisés en session
 		// TODO : intégrer une fonctionnalité d'impression PDF de la fiche
 
-	    $this->dataAccess->refuFiche($idVisiteur, $mois);
+
+		$data['idVisiteur'] = $idVisiteur;
+		$data['mois'] = $mois;
+	    $this->templates->load('t_comptable', 'v_comRefuFiche', $data);
 	}
 	/**
 	 * Modifie les quantités associées aux frais forfaitisés dans une fiche donnée
 	 * 
-	 * @param $idVisiteur : l'id du visiteur 
+	 * @param $idVisiteur : l'id du comptable 
 	 * @param $mois : le mois de la fiche concernée
 	 * @param $lesFrais : les quantités liées à chaque type de frais, sous la forme d'un tableau
 	*/
@@ -136,7 +139,7 @@ class A_comptable extends CI_Model {
 	/**
 	 * Ajoute une ligne de frais hors forfait dans une fiche donnée
 	 * 
-	 * @param $idVisiteur : l'id du visiteur 
+	 * @param $idVisiteur : l'id du comptable 
 	 * @param $mois : le mois de la fiche concernée
 	 * @param $lesFrais : les quantités liées à chaque type de frais, sous la forme d'un tableau
 	*/
@@ -154,7 +157,7 @@ class A_comptable extends CI_Model {
 	/**
 	 * Supprime une ligne de frais hors forfait dans une fiche donnée
 	 * 
-	 * @param $idVisiteur : l'id du visiteur 
+	 * @param $idVisiteur : l'id du comptable 
 	 * @param $mois : le mois de la fiche concernée
 	 * @param $idLigneFrais : l'id de la ligne à supprimer
 	*/

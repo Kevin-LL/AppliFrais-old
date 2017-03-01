@@ -27,12 +27,12 @@
 
 				if ($uneFiche['idEtat'] == 'CL') {
 					$validLink = anchor('c_comptable/validFiche/'.$uneFiche['mois'].'/'.$uneFiche['idVisiteur'], 'Valider',  'title="Valider la fiche"');
-					$denyLink = anchor('c_comptable/refuFiche/'.$uneFiche['mois'].'/'.$uneFiche['idVisiteur'], 'Refuser',  'title="Refuser la fiche"  onclick="return confirm(\'Voulez-vous vraiment refuser cette fiche ?\');"');
+					$denyLink = anchor('c_comptable/refuFiche/'.$uneFiche['mois'].'/'.$uneFiche['idVisiteur'], 'Refuser',  'title="Refuser la fiche"');
 				}
 				
 				echo 
 				'<tr>
-			<td class="date">'.anchor('c_comptable/voirFicheComptable/'.$uneFiche['mois'].'/'.$uneFiche['idVisiteur'], $uneFiche['mois'], $uneFiche['idVisiteur'], 'title="Consulter la fiche"').'</td>
+					<td class="date">'.anchor('c_comptable/voirFicheComptable/'.$uneFiche['mois'].'/'.$uneFiche['idVisiteur'], $uneFiche['mois'], $uneFiche['idVisiteur'], 'title="Consulter la fiche"').'</td>
 					<td class="libelle">'.$uneFiche['idVisiteur'].'&nbsp;'.$uneFiche['nom'].'</td>
 					<td class="libelle">'.$uneFiche['libelle'].'</td>
 					<td class="montant">'.$uneFiche['montantValide'].'</td>

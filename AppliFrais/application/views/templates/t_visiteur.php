@@ -17,6 +17,7 @@
 				document.getElementById("notify").style.display = "none";
 			}
 		</script>
+		<script src="<?php echo js_url('fonctions.js'); ?>" ></script>
 		
 	</head>
 
@@ -56,7 +57,8 @@
 			<?php echo $body; ?>
 
 			<div id="pied">
-				<br/>
+				<img src="http://jigsaw.w3.org/css-validator/images/vcss"></img>
+				<img src="https://validator.w3.org/images/valid_icons/valid-xhtml10"></img>
 			</div>
 
 		</div>    

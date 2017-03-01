@@ -27,4 +27,39 @@
 		</fieldset>
 		<p></p>
 	</div>
+	
+	
+	<table class="listeLegere">
+		<caption>Descriptif des éléments hors forfait</caption>
+		<tr>
+			<th >Date</th>
+			<th >Libellé</th>  
+			<th >Montant</th>  
+			<th >&nbsp;</th>              
+		</tr>
+          
+		<?php    
+			foreach( $lesFraisHorsForfait as $unFraisHorsForfait) 
+			{
+				$libelle = $unFraisHorsForfait['libelle'];
+				$date = $unFraisHorsForfait['date'];
+				$montant=$unFraisHorsForfait['montant'];
+				$id = $unFraisHorsForfait['id'];
+				echo 
+				'<tr>
+					<td class="date">'.$date.'</td>
+					<td class="libelle">'.$libelle.'</td>
+					<td class="montant">'.$montant.'</td>
+					<td class="action">'.
+					anchor(	"c_visiteur/supprFrais/$id", 
+							"Supprimer ce frais", 
+							'title="Suppression d\'une ligne de frais" onclick="return confirm(\'Voulez-vous vraiment supprimer ce frais ?\');"'
+						).
+					'</td>
+				</tr>';
+			}
+		?>	  
+                                          
+    </table>
+
 </div>

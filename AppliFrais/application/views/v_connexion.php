@@ -23,6 +23,4 @@
 		</p>
 	</form>
 
-<img src="http://jigsaw.w3.org/css-validator/images/vcss"></img>
-<img src="https://validator.w3.org/images/valid_icons/valid-xhtml10"></img>
 </div>

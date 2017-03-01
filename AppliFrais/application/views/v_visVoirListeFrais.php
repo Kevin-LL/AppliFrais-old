@@ -3,7 +3,7 @@
 ?>
 
 <div id="contenu">
-	<h2>Renseigner ma fiche de frais du mois <?php echo $numMois."-".$numAnnee; ?></h2>
+	<h2>Consulter ma fiche de frais du mois <?php echo $numMois."-".$numAnnee; ?></h2>
 					
 	<div class="corpsForm">
 	  
