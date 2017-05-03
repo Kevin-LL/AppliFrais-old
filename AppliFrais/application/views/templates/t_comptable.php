@@ -30,15 +30,13 @@
 			<!-- Division pour le menu -->
 			<div id="menuGauche">
 				<div id="infosUtil">
-					<h2></h2>
+					<h2>Comptable :
+					<br/>
+					<?php echo $this->session->userdata('prenom')."  ".$this->session->userdata('nom');  ?>
+					</h2>
 				</div>  
 				
 				<ul id="menuList">
-					<li>
-						Comptable :<br/>
-						<?php echo $this->session->userdata('prenom')."  ".$this->session->userdata('nom');  ?>
-					</li>
-					<br/>
 					<li class="smenu">
 						<?php echo anchor('c_comptable/', 'Accueil', 'title="Page d\'accueil"'); ?>
 					</li>

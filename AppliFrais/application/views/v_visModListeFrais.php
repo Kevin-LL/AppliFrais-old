@@ -46,6 +46,7 @@
 						';
 					}
 				?>
+				<td></td><td></td><td></td><td><?php echo '<label id="final"></label>' ?></td>
 				<table>
 			</fieldset>
 		</div>

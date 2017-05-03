@@ -31,15 +31,13 @@
 			<!-- Division pour le menu -->
 			<div id="menuGauche">
 				<div id="infosUtil">
-					<h2></h2>
+					<h2>Visiteur :
+					<br/>
+					<?php echo $this->session->userdata('prenom')."  ".$this->session->userdata('nom');  ?>
+					</h2>
 				</div>  
 				
 				<ul id="menuList">
-					<li>
-						Visiteur :<br/>
-						<?php echo $this->session->userdata('prenom')."  ".$this->session->userdata('nom');  ?>
-					</li>
-					<br/>
 					<li class="smenu">
 						<?php echo anchor('c_visiteur/', 'Accueil', 'title="Page d\'accueil"'); ?>
 					</li>

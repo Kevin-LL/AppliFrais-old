@@ -200,7 +200,7 @@ class DataAccess extends CI_Model {
 	public function signeFiche($idVisiteur,$mois){
 		//met à 'CL' son champs idEtat
 		$laFiche = $this->getLesInfosFicheFrais($idVisiteur,$mois);
-		if($laFiche['idEtat']=='CR'){
+		if($laFiche['idEtat']=='CR' || $laFiche['idEtat']=='RE'){
 				$this->majEtatFicheFrais($idVisiteur, $mois,'CL');
 		}
 	}
@@ -213,7 +213,7 @@ class DataAccess extends CI_Model {
 		}
 	}
 	
-	public function refuFiche($idVisiteur,$mois){
+	public function refuConfirm($idVisiteur,$mois,$commentaire){
 		//met à 'CL' son champs idEtat
 		$laFiche = $this->getLesInfosFicheFrais($idVisiteur,$mois);
 		if($laFiche['idEtat']=='CL'){

@@ -121,6 +121,13 @@ class A_comptable extends CI_Model {
 		$data['mois'] = $mois;
 	    $this->templates->load('t_comptable', 'v_comRefuFiche', $data);
 	}
+
+	public function refuConfirm($idVisiteur, $mois, $commentaire)
+	{	// TODO : s'assurer que les paramètres reçus sont cohérents avec ceux mémorisés en session
+		// TODO : intégrer une fonctionnalité d'impression PDF de la fiche
+
+	    $this->dataAccess->refuConfirm($idVisiteur, $mois, $commentaire);
+	}
 	/**
 	 * Modifie les quantités associées aux frais forfaitisés dans une fiche donnée
 	 * 

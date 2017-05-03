@@ -181,6 +181,21 @@ class C_comptable extends CI_Controller {
 				$idVisiteur = $params[1];
 				$this->a_comptable->refuFiche($idVisiteur, $mois);
 			}
+			elseif ($action == 'refuConfirm')
+			{	$this->load->model('a_comptable');
+
+				// obtention du mois de la fiche à valider qui doit avoir été transmis
+				// en second paramètre
+				$mois = $params[0];
+				// obtention de l'id utilisateur courant et du mois concerné
+				$idVisiteur = $params[1];
+				$commentaire = $this->input->post("commentaire");
+				$this->a_comptable->refuConfirm($idVisiteur, $mois, $commentaire);
+				// obtention du commentaire
+
+				// ... et on revient à fichesComptable
+				$this->a_comptable->fichesComptable($idVisiteur, "La fiche $mois a été refusée.");
+			}
 			else	// dans tous les autres cas, on envoie la vue par défaut pour l'erreur 404
 			{
 				show_404();
