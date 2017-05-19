@@ -58,8 +58,8 @@
 		<tr>
 			<th>Date</th>
 			<th>Libellé</th>  
-			<th>Montant</th>  
-			<th>&nbsp;</th>              
+			<th>Montant</th>
+			<th>&nbsp;</th>			
 		</tr>
           
 		<?php    

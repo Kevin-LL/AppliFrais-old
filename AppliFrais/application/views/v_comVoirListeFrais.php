@@ -48,10 +48,10 @@
 	<table class="listeLegere">
 		<caption>Descriptif des éléments hors forfait</caption>
 		<tr>
-			<th >Date</th>
-			<th >Libellé</th>  
-			<th >Montant</th>  
-			<th >&nbsp;</th>              
+			<th>Date</th>
+			<th>Libellé</th>  
+			<th>Montant</th>
+			<th>&nbsp;</th>			
 		</tr>
           
 		<?php    
