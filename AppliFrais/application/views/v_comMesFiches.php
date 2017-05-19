@@ -22,11 +22,13 @@
 		<?php    
 			foreach( $fichesComptable as $uneFiche) 
 			{
+				$modLink = '';
 				$validLink = '';
 				$denyLink = '';
 
 				if ($uneFiche['idEtat'] == 'CL') {
-					$validLink = anchor('c_comptable/validFiche/'.$uneFiche['mois'].'/'.$uneFiche['idVisiteur'], 'Valider',  'title="Valider la fiche"');
+					$modLink = anchor('c_comptable/modFiche/'.$uneFiche['mois'].'/'.$uneFiche['idVisiteur'], 'Modifier',  'title="Modifier la fiche"');
+					$validLink = anchor('c_comptable/validFiche/'.$uneFiche['mois'].'/'.$uneFiche['idVisiteur'], 'Valider',  'title="Valider la fiche" onclick="return confirm(\'Voulez-vous vraiment valider cette fiche ?\');"');
 					$denyLink = anchor('c_comptable/refuFiche/'.$uneFiche['mois'].'/'.$uneFiche['idVisiteur'], 'Refuser',  'title="Refuser la fiche"');
 				}
 				
@@ -37,6 +39,7 @@
 					<td class="libelle">'.$uneFiche['libelle'].'</td>
 					<td class="montant">'.$uneFiche['montantValide'].'</td>
 					<td class="date">'.$uneFiche['dateModif'].'</td>
+					<td class="action">'.$modLink.'</td>
 					<td class="action">'.$validLink.'</td>
 					<td class="action">'.$denyLink.'</td>
 				</tr>';

@@ -6,7 +6,15 @@
 	<h2>Renseigner ma fiche de frais du mois <?php echo $numMois."-".$numAnnee; ?></h2>
 					
 	<?php if(!empty($notify)) echo '<p id="notify" >'.$notify.'</p>';?>
-	 
+	
+	<div class="corpsForm">
+	<?php if(isset($raison['raison'])) {
+				  if($raison['raison'] != NULL) {
+						echo "<fieldset><legend>Raison du refus</legend>Commentaire : <text id='refuCommentaire'>".$raison['raison']."</text></fieldset></br>";
+				  }
+				  }
+	?>
+	</div>
 	<form method="post"  action="<?php echo base_url("c_visiteur/majForfait");?>">
 		<div class="corpsForm">
 		  
@@ -18,7 +26,7 @@
 				<th>Quantite</th>
 				<th>Montant</th>
 				<th>Total</th>
-				<tr>
+				</tr>
 				<?php
 					foreach ($lesFraisForfait as $unFrais)
 					{
@@ -34,20 +42,28 @@
 								<label for="'.$idFrais.'">'.$libelle.'</label>
 							</td>
 							<td>
-								<input id="'.$idFrais.'" type="text" name="lesFrais['.$idFrais.']" size="10" maxlength="5" value="'.$quantite.'" onchange="calculTotal(this)" />
+								<input name="lesFrais['.$idFrais.']" required="required" type="text" id="'.$idFrais.'" size="10" maxlength="5" value="'.$quantite.'" onchange="calculTotal('.$idFrais.')" />
 							</td>
 							<td>
-								<label id="montant'.$idFrais.'" for="'.$idFrais.'">'.$montant.'</label>
+								<input name="lesMontants['.$idFrais.']" disabled="disabled" type="text" id="montant'.$idFrais.'" size="10" maxlength="5" value="'.$montant.'"/>
 							</td>
 							<td>
-								<label id="total'.$idFrais.'" for="'.$idFrais.'"></label>
+								<label id="total'.$idFrais.'" for="'.$idFrais.'">0</label>
 							</td>
-						<tr>
+						</tr>
 						';
 					}
 				?>
-				<td></td><td></td><td></td><td><?php echo '<label id="final"></label>' ?></td>
-				<table>
+				<tr>
+				<td></td>
+				<td></td>
+				<td><b>Total forfaitisés :</b></td>
+				<td><label id="totalfinal">0</label></td>
+				</tr>
+				</table>
+				</br>
+				<div id="erreurSaisi"></div>
+				<text>*Montants sous réserve de validation</text>
 			</fieldset>
 		</div>
 		<div class="piedForm">
@@ -62,10 +78,10 @@
 	<table class="listeLegere">
 		<caption>Descriptif des éléments hors forfait</caption>
 		<tr>
-			<th >Date</th>
-			<th >Libellé</th>  
-			<th >Montant</th>  
-			<th >&nbsp;</th>              
+			<th>Date</th>
+			<th>Libellé</th>  
+			<th>Montant</th>  
+			<th>&nbsp;</th>              
 		</tr>
           
 		<?php    

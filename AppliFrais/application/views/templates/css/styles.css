@@ -1,8 +1,9 @@
 /* Styles des divisions principales de la page */
 body{
   background-color: #77AADD;
-	background-image: url(imgs/FONDGLOBAL.jpg);
-	background-repeat: repeat-x;
+  background-image: url(../images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   margin:0% 0%;
   padding : 0.6em;
   font-family:"Trebuchet MS",Verdana,Geneva,Arial,Helvetica,sans-serif;
@@ -12,13 +13,14 @@ body{
   background-color:white;
   width : 65%;
   margin : auto ;
-  border : 0.2em solid black;
+  border : 0.8em solid black;
+  border-color: #004559;
   padding : 0.1em;
 }
 #entete{
-  background-color:rgb(72,198,236);
-	color : #980101;
-	border: solid 0.1em #980101;
+  background-color: #0087AF;
+	color : #EEEEEE;
+	border: solid 0.3em #980101;
 	height: 154px;
 	padding: 0em;
 	border-collapse: separate;
@@ -31,6 +33,7 @@ body{
 	padding:0.4em;
 	padding: 0.2em;
 	border-collapse: separate;
+	background-color: #E9F1FE;
 }
 #menuGauche {
 	margin-top : 0.8em;
@@ -46,7 +49,7 @@ body{
 	padding: 1.3em;
 	background-color: white;
 	border-left :  groove 0.8em #980101;
-  margin-top : 1.2em;
+	margin-top : 1.2em;
 	margin-left: 18%;
 /* permet de fixer une hauteur mini sur les navigateurs modernes */
   min-height:27em;
@@ -97,13 +100,13 @@ ul#menuList a:hover {
 #entete #logoGSB {
   float : left;
   width : 238px;
-  height : 152px;
+  height : 154px;
 }
 
 #entete h1 {
   margin : 1em;
   margin-left:6em;
-  font-size : x-large;
+  font-size : xx-large;
   text-align:center;
 }
 
@@ -232,7 +235,7 @@ taille de caractères légèrement supérieure à la normale */
 
 /* Style pour les lignes d'en-tête des tableaux */
 #contenu th {  
-   background-color:#77AADD;
+   background-color: #77AADD;
    height:21px;
    text-align:center;
    vertical-align:top;
@@ -312,4 +315,14 @@ table.listeLegere th.eltForfait{
 #contenu img {
   height : 28px;
   float : left;
+}
+
+#erreurSaisi{
+	color:red;
+}
+
+#refuCommentaire {
+	color:red;
+	font-size:15px;
+	font-weight:bold;
 }

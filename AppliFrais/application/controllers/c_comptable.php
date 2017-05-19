@@ -83,7 +83,7 @@ class C_comptable extends CI_Controller {
 				// on mémorise le mois de la fiche en cours de modification
 				$this->session->set_userdata('mois', $mois);
 				// obtention de l'id utilisateur courant
-				$idVisiteur = $this->session->userdata('idUser');
+				$idVisiteur = $params[1];
 
 				$this->a_comptable->modFiche($idVisiteur, $mois);
 			}
@@ -108,13 +108,13 @@ class C_comptable extends CI_Controller {
 				$this->load->model('a_comptable');
 
 				// obtention de l'id du comptable et du mois concerné
-				$idVisiteur = $this->session->userdata('idUser');
-				$mois = $this->session->userdata('mois');
+				$idVisiteur = $params[1];
+				$mois = $params[0];
 
 				// obtention des données postées
-				$lesFrais = $this->input->post('lesFrais');
+				$lesMontants = $this->input->post('lesMontants');
 
-				$this->a_comptable->majForfait($idVisiteur, $mois, $lesFrais);
+				$this->a_comptable->majForfait($idVisiteur, $mois, $lesMontants);
 
 				// ... et on revient en modification de la fiche
 				$this->a_comptable->modFiche($idVisiteur, $mois, 'Modification(s) des éléments forfaitisés enregistrée(s) ...');
@@ -191,8 +191,6 @@ class C_comptable extends CI_Controller {
 				$idVisiteur = $params[1];
 				$commentaire = $this->input->post("commentaire");
 				$this->a_comptable->refuConfirm($idVisiteur, $mois, $commentaire);
-				// obtention du commentaire
-
 				// ... et on revient à fichesComptable
 				$this->a_comptable->fichesComptable($idVisiteur, "La fiche $mois a été refusée.");
 			}

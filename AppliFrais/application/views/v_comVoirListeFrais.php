@@ -9,21 +9,37 @@
 	  
 		<fieldset>
 			<legend>Eléments forfaitisés</legend>
-			<?php
-				foreach ($lesFraisForfait as $unFrais)
-				{
-					$idFrais = $unFrais['idfrais'];
-					$libelle = $unFrais['libelle'];
-					$quantite = $unFrais['quantite'];
+				<table>
+				<tr>
+				<th></th>
+				<th>Quantite</th>
+				<th>Montant</th>
+				</tr>
+				<?php
+					foreach ($lesFraisForfait as $unFrais)
+					{
+						$idFrais = $unFrais['idfrais'];
+						$libelle = $unFrais['libelle'];
+						$quantite = $unFrais['quantite'];
+						$montant = $unFrais['montant'];
 
-					echo 
-					'<p>
-						<label for="'.$idFrais.'">'.$libelle.'</label>
-						<input type="text" readonly id="'.$idFrais.'" name="lesFrais['.$idFrais.']" size="10" maxlength="5" value="'.$quantite.'" />
-					</p>
-					';
-				}
-			?>
+						echo 
+						'
+						<tr>
+							<td>
+								<label for="'.$idFrais.'">'.$libelle.'</label>
+							</td>
+							<td>
+								<input name="lesFrais['.$idFrais.']" disabled="disabled" type="text" id="'.$idFrais.'" size="10" maxlength="5" value="'.$quantite.'" onchange="calculTotal('.$idFrais.')" />
+							</td>
+							<td>
+								<input name="lesMontants['.$idFrais.']" disabled="disabled" type="text" id="montant'.$idFrais.'" size="10" maxlength="5" value="'.$montant.'"/>
+							</td>
+						</tr>
+						';
+					}
+				?>
+				</table>
 		</fieldset>
 		<p></p>
 	</div>

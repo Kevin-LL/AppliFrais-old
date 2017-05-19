@@ -86,10 +86,11 @@ class A_comptable extends CI_Model {
 		$data['notify'] = $message;
 		$data['numAnnee'] = substr( $mois,0,4);
 		$data['numMois'] = substr( $mois,4,2);
+		$data['idVisiteur'] = $idVisiteur;
 		$data['lesFraisHorsForfait'] = $this->dataAccess->getLesLignesHorsForfait($idVisiteur,$mois);
-		$data['lesFraisForfait'] = $this->dataAccess->getLesLignesForfait($idVisiteur,$mois);		
+		$data['lesFraisForfait'] = $this->dataAccess->getLesLignesForfaitComptable($idVisiteur,$mois);		
 
-		$this->templates->load('t_comptable', 'v_visModListeFrais', $data);
+		$this->templates->load('t_comptable', 'v_comModListeFrais', $data);
 	}
 
 	/**
@@ -116,9 +117,10 @@ class A_comptable extends CI_Model {
 	{	// TODO : s'assurer que les paramètres reçus sont cohérents avec ceux mémorisés en session
 		// TODO : intégrer une fonctionnalité d'impression PDF de la fiche
 
-
-		$data['idVisiteur'] = $idVisiteur;
+		$data['numAnnee'] = substr( $mois,0,4);
+		$data['numMois'] = substr( $mois,4,2);
 		$data['mois'] = $mois;
+		$data['idVisiteur'] = $idVisiteur;
 	    $this->templates->load('t_comptable', 'v_comRefuFiche', $data);
 	}
 
@@ -127,6 +129,7 @@ class A_comptable extends CI_Model {
 		// TODO : intégrer une fonctionnalité d'impression PDF de la fiche
 
 	    $this->dataAccess->refuConfirm($idVisiteur, $mois, $commentaire);
+		$this->dataAccess->refuConfirmCommentaire($idVisiteur, $mois, $commentaire);
 	}
 	/**
 	 * Modifie les quantités associées aux frais forfaitisés dans une fiche donnée
@@ -135,11 +138,11 @@ class A_comptable extends CI_Model {
 	 * @param $mois : le mois de la fiche concernée
 	 * @param $lesFrais : les quantités liées à chaque type de frais, sous la forme d'un tableau
 	*/
-	public function majForfait($idVisiteur, $mois, $lesFrais)
+	public function majForfait($idVisiteur, $mois, $lesMontants)
 	{	// TODO : s'assurer que les paramètres reçus sont cohérents avec ceux mémorisés en session
 		// TODO : valider les données contenues dans $lesFrais ...
 		
-		$this->dataAccess->majLignesForfait($idVisiteur,$mois,$lesFrais);
+		$this->dataAccess->majLignesForfaitComptable($idVisiteur,$mois,$lesMontants);
 		$this->dataAccess->recalculeMontantFiche($idVisiteur,$mois);
 	}
 

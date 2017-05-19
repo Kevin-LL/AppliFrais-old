@@ -89,7 +89,18 @@ class DataAccess extends CI_Model {
 	 * @return l'id, le libelle et la quantité sous la forme d'un tableau associatif 
 	*/
 	public function getLesLignesForfait($idVisiteur, $mois){
-		$req = "select fraisforfait.id as idfrais, fraisforfait.libelle as libelle, lignefraisforfait.quantite as quantite, fraisforfait.montant as montant 
+		$req = "select fraisforfait.id as idfrais, fraisforfait.libelle as libelle, lignefraisforfait.quantite as quantite, lignefraisforfait.montantApplique as montant 
+				from lignefraisforfait inner join fraisforfait 
+					on fraisforfait.id = lignefraisforfait.idfraisforfait
+				where lignefraisforfait.idvisiteur ='$idVisiteur' and lignefraisforfait.mois='$mois' 
+				order by lignefraisforfait.idfraisforfait";	
+		$rs = $this->db->query($req);
+		$lesLignes = $rs->result_array();
+		return $lesLignes; 
+	}
+	
+		public function getLesLignesForfaitComptable($idVisiteur, $mois){
+		$req = "select fraisforfait.id as idfrais, fraisforfait.libelle as libelle, lignefraisforfait.quantite as quantite, lignefraisforfait.montantApplique as montant 
 				from lignefraisforfait inner join fraisforfait 
 					on fraisforfait.id = lignefraisforfait.idfraisforfait
 				where lignefraisforfait.idvisiteur ='$idVisiteur' and lignefraisforfait.mois='$mois' 
@@ -125,6 +136,19 @@ class DataAccess extends CI_Model {
 			$qte = $lesFrais[$unIdFrais];
 			$req = "update lignefraisforfait 
 					set lignefraisforfait.quantite = $qte
+					where lignefraisforfait.idvisiteur = '$idVisiteur' 
+						and lignefraisforfait.mois = '$mois'
+						and lignefraisforfait.idfraisforfait = '$unIdFrais'";
+			$this->db->simple_query($req);
+		}
+	}
+	
+	public function majLignesForfaitComptable($idVisiteur, $mois, $lesMontants){
+		$lesCles = array_keys($lesMontants);
+		foreach($lesCles as $unIdFrais){
+			$qte = $lesMontants[$unIdFrais];
+			$req = "update lignefraisforfait 
+					set lignefraisforfait.montantApplique = $qte
 					where lignefraisforfait.idvisiteur = '$idVisiteur' 
 						and lignefraisforfait.mois = '$mois'
 						and lignefraisforfait.idfraisforfait = '$unIdFrais'";
@@ -219,6 +243,22 @@ class DataAccess extends CI_Model {
 		if($laFiche['idEtat']=='CL'){
 				$this->majEtatFicheFrais($idVisiteur, $mois,'RE');
 		}
+	}
+	
+	public function refuConfirmCommentaire($idVisiteur,$mois,$commentaire){
+		$req = "update ficheFrais
+		set motifRefus = '$commentaire'
+		where fichefrais.idvisiteur ='$idVisiteur' and fichefrais.mois = '$mois'";
+		$this->db->simple_query($req);
+	}
+	
+	public function getlaRaison($idVisiteur, $mois){
+		$req = "select motifRefus as raison
+		from fichefrais
+		where fichefrais.idVisiteur = '$idVisiteur' and fichefrais.mois = '$mois'";
+		$rs = $this->db->query($req);
+		$lesFiches = $rs->first_row('array');
+		return $lesFiches;
 	}
 
 	/**
