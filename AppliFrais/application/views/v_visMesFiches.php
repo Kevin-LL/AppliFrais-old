@@ -36,7 +36,7 @@
 					<td class="montant">'.$uneFiche['montantValide'].'</td>
 					<td class="date">'.$uneFiche['dateModif'].'</td>
 					<td class="action">'.$modLink.'</td>
-					<td class="action">'.$signeLink.'</td>
+					<td class="actionvalid">'.$signeLink.'</td>
 				</tr>';
 			}
 		?>	  

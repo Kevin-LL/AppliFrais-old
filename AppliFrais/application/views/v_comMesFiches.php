@@ -40,8 +40,8 @@
 					<td class="montant">'.$uneFiche['montantValide'].'</td>
 					<td class="date">'.$uneFiche['dateModif'].'</td>
 					<td class="action">'.$modLink.'</td>
-					<td class="action">'.$validLink.'</td>
-					<td class="action">'.$denyLink.'</td>
+					<td class="actionvalid">'.$validLink.'</td>
+					<td class="actiondeny">'.$denyLink.'</td>
 				</tr>';
 			}
 		?>	  

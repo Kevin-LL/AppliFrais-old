@@ -283,6 +283,18 @@ table.listeLegere td.date, table.listeLegere td.action{
   color:black;
   font-weight:normal;
 }
+.actionvalid{
+  text-align : center;
+  color:black;
+  font-weight:normal;
+  background-color:lightgreen;
+}
+.actiondeny{
+  text-align : center;
+  color:black;
+  font-weight:normal;
+  background-color:tomato;
+}
 table.listeLegere td.libelle{
   text-align : left;
   color:black;
@@ -318,6 +330,10 @@ table.listeLegere th.eltForfait{
 }
 
 #erreurSaisi{
+	color:red;
+}
+
+#erreurSaisiMontant{
 	color:red;
 }
 

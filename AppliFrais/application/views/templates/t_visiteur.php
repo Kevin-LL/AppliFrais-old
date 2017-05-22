@@ -17,7 +17,9 @@
 				document.getElementById("notify").style.display = "none";
 			}
 		</script>
-		<script src="<?php echo js_url('fonctions.js'); ?>" ></script>
+		<script src="<?php echo js_url('fonctions.js');?>"></script>
+		<script type="JavaScript">calculTotal();</script>
+		<script type="JavaScript">checkMontant();</script>
 		
 	</head>
 

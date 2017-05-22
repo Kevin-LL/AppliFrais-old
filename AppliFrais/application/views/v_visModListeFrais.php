@@ -113,17 +113,45 @@
 			<fieldset>
 				<legend>Nouvel élément hors forfait</legend>
 				<p>
-					<label for="txtDateHF">Date (jj/mm/aaaa): </label>
-					<input type="text" id="txtDateHF" name="dateFrais" size="10" maxlength="10" value="" />
+					<label for="txtDateHF">Date : </label>
+						<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+						<link rel="stylesheet" href="/resources/demos/style.css"/>
+						<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+						<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+						<script>
+							$(function(){
+								$("#datepicker").datepicker();
+								 $.datepicker.regional['fr'] = {clearText: 'Effacer', clearStatus: '',
+								 closeText: 'Fermer', closeStatus: 'Fermer sans modifier',
+								 prevText: '&lt;Préc', prevStatus: 'Voir le mois précédent',
+								 nextText: 'Suiv&gt;', nextStatus: 'Voir le mois suivant',
+								 currentText: 'Courant', currentStatus: 'Voir le mois courant',
+								 monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin',
+								 'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+								 monthNamesShort: ['Jan','Fév','Mar','Avr','Mai','Jun',
+								 'Jul','Aoû','Sep','Oct','Nov','Déc'],
+								 monthStatus: 'Voir un autre mois', yearStatus: 'Voir un autre année',
+								 weekHeader: 'Sm', weekStatus: '',
+								 dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+								 dayNamesShort: ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],
+								 dayNamesMin: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
+								 dayStatus: 'Utiliser DD comme premier jour de la semaine', dateStatus: 'Choisir le DD, MM d',
+								 dateFormat: 'dd/mm/yy', firstDay: 0, 
+								 initStatus: 'Choisir la date', isRTL: false};
+								 $.datepicker.setDefaults($.datepicker.regional['fr']);
+							});
+						</script>
+					<input required="required" type="date" id="datepicker" name="dateFrais" size="10" maxlength="10" value="" />
 				</p>
 				<p>
 					<label for="txtLibelleHF">Libellé</label>
-					<input type="text" id="txtLibelleHF" name="libelle" size="60" maxlength="256" value="" />
+					<input required="required" type="text" id="txtLibelleHF" name="libelle" size="60" maxlength="256" value="" />
 				</p>
 				<p>
 					<label for="txtMontantHF">Montant : </label>
-					<input type="text" id="txtMontantHF" name="montant" size="10" maxlength="10" value="" />
+					<input required="required" type="text" id="txtMontantHF" name="montant" size="10" maxlength="10" value="" onchange="checkMontant(txtMontantHF)" />
 				</p>
+				<div id="erreurSaisiMontant"></div>
 			</fieldset>
 		</div>
 		<div class="piedForm">

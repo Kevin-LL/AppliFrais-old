@@ -42,3 +42,15 @@ function calculTotal(idFrais){
 		document.getElementById("totalfinal").innerHTML = totalfinal;
 	}
 }
+
+function checkMontant(txtMontantHF){
+	var montant = document.getElementById(txtMontantHF.id).value;
+	
+	if (isNaN(montant)){
+			document.getElementById(txtMontantHF.id).style.color='red';
+			document.getElementById("erreurSaisiMontant").innerHTML ="Caractère(s) non valide(s) pour le montant";
+	}else{
+			document.getElementById(txtMontantHF.id).style.color='black';
+			document.getElementById("erreurSaisiMontant").innerHTML ="";
+	}
+}
