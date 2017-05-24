@@ -342,3 +342,7 @@ table.listeLegere th.eltForfait{
 	font-size:15px;
 	font-weight:bold;
 }
+
+#montantETP, #montantKM, #montantNUI, #montantREP{
+text-align:right;
+}

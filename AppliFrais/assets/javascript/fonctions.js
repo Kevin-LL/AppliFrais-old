@@ -37,14 +37,18 @@ function calculTotalDisplay(){
 		var montant4 = document.getElementById("montantREP").value;
 		
 		//total de chaque lignes
-		var t1 = document.getElementById("totalETP").innerHTML = parseFloat(qte1)*parseFloat(montant1);
-		var t2 = document.getElementById("totalKM").innerHTML = parseFloat(qte2)*parseFloat(montant2);
-		var t3 = document.getElementById("totalNUI").innerHTML = parseFloat(qte3)*parseFloat(montant3);
-		var t4 = document.getElementById("totalREP").innerHTML = parseFloat(qte4)*parseFloat(montant4);
+		var t1 = parseFloat(qte1)*parseFloat(montant1);
+		document.getElementById("totalETP").innerHTML = t1.toFixed(2)+"€";
+		var t2 = parseFloat(qte2)*parseFloat(montant2);
+		document.getElementById("totalKM").innerHTML = t2.toFixed(2)+"€";
+		var t3 = parseFloat(qte3)*parseFloat(montant3);
+		document.getElementById("totalNUI").innerHTML = t3.toFixed(2)+"€";
+		var t4 = parseFloat(qte4)*parseFloat(montant4);
+		document.getElementById("totalREP").innerHTML = t4.toFixed(2)+"€";
 		
 		//totalfinal
 		var totalfinal = parseFloat(t1)+parseFloat(t2)+parseFloat(t3)+parseFloat(t4);
-		document.getElementById("totalfinal").innerHTML = totalfinal;
+		document.getElementById("totalfinal").innerHTML = totalfinal.toFixed(2)+"€";
 }
 
 function checkMontant(txtMontantHF){

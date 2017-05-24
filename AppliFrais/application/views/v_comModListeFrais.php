@@ -36,7 +36,7 @@ $this->load->helper('url');
 								<input name="lesFrais['.$idFrais.']" disabled="disabled" type="text" id="'.$idFrais.'" size="10" maxlength="5" value="'.$quantite.'" />
 							</td>
 							<td>
-								<input name="lesMontants['.$idFrais.']" required="required" type="text" id="montant'.$idFrais.'" size="10" maxlength="5" value="'.$montant.'" onchange="calculTotal('.$idFrais.')"/> 
+								<input name="lesMontants['.$idFrais.']" required="required" type="text" id="montant'.$idFrais.'" size="10" maxlength="5" value="'.$montant.'" onchange="calculTotal('.$idFrais.')"/>€ 
 							</td>
 							<td>
 								<label id="total'.$idFrais.'" for="'.$idFrais.'">0</label>
