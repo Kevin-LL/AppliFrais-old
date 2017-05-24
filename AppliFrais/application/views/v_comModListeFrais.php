@@ -25,7 +25,6 @@ $this->load->helper('url');
 						$libelle = $unFrais['libelle'];
 						$quantite = $unFrais['quantite'];
 						$montant = $unFrais['montant'];	
-						$fonction = 'calculTotal('.$idFrais.')';
 						
 						echo 
 						'
@@ -49,7 +48,7 @@ $this->load->helper('url');
 				<tr>
 				<td></td>
 				<td></td>
-				<td><b>Total forfaitisés :</b></td>
+				<td><b>Total forfaitisé :</b></td>
 				<td><label id="totalfinal">0</label></td>
 				</tr>
 				</table>

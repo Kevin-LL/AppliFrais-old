@@ -23,7 +23,7 @@
 		
 	</head>
 
-	<body onload="setTimeout(hideNotify,7000);">
+	<body onload="calculTotalDisplay();"><!--<body onload="setTimeout(hideNotify,7000);">-->
 		<div id="page">
 			<div id="entete">
 				<img src="<?php echo $v_path.'/templates/images/logo.jpg'?>" id="logoGSB" alt="Laboratoire Galaxy-Swiss Bourdin" title="Laboratoire Galaxy-Swiss Bourdin" />

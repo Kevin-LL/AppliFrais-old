@@ -19,6 +19,11 @@ function calculTotal(idFrais){
 		document.getElementById("montant"+id).style.color='black';
 		document.getElementById("erreurSaisi").innerHTML ="";
 		
+		calculTotalDisplay(); //Fonction chargée dans le template (onload)
+	}
+}
+
+function calculTotalDisplay(){
 		//recherche les quantites
 		var qte1 = document.getElementById("ETP").value;
 		var qte2 = document.getElementById("KM").value;
@@ -32,15 +37,14 @@ function calculTotal(idFrais){
 		var montant4 = document.getElementById("montantREP").value;
 		
 		//total de chaque lignes
-		var t1 = document.getElementById("totalETP").innerHTML = parseFloat(qte1)*parseFloat(montant1);;
-		var t2 = document.getElementById("totalKM").innerHTML = parseFloat(qte2)*parseFloat(montant2);;
-		var t3 = document.getElementById("totalNUI").innerHTML = parseFloat(qte3)*parseFloat(montant3);;
-		var t4 = document.getElementById("totalREP").innerHTML = parseFloat(qte4)*parseFloat(montant4);;
+		var t1 = document.getElementById("totalETP").innerHTML = parseFloat(qte1)*parseFloat(montant1);
+		var t2 = document.getElementById("totalKM").innerHTML = parseFloat(qte2)*parseFloat(montant2);
+		var t3 = document.getElementById("totalNUI").innerHTML = parseFloat(qte3)*parseFloat(montant3);
+		var t4 = document.getElementById("totalREP").innerHTML = parseFloat(qte4)*parseFloat(montant4);
 		
 		//totalfinal
 		var totalfinal = parseFloat(t1)+parseFloat(t2)+parseFloat(t3)+parseFloat(t4);
 		document.getElementById("totalfinal").innerHTML = totalfinal;
-	}
 }
 
 function checkMontant(txtMontantHF){

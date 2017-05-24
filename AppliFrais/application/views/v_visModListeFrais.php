@@ -57,7 +57,7 @@
 				<tr>
 				<td></td>
 				<td></td>
-				<td><b>Total forfaitisés :</b></td>
+				<td><b>Total forfaitisé :</b></td>
 				<td><label id="totalfinal">0</label></td>
 				</tr>
 				</table>
