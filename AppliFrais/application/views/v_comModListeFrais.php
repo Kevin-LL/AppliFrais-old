@@ -52,14 +52,14 @@ $this->load->helper('url');
 				<td><label id="totalfinal">0</label></td>
 				</tr>
 				</table>
-				</br>
+				<br>
 				<div id="erreurSaisi"></div>
 			</fieldset>
 		</div>
 		<div class="piedForm">
 			<p>
-				<input id="ok" type="submit" value="Enregistrer" size="20" onclick="verifCaractereAutorise()" />
-				<input id="annuler" type="reset" value="Effacer" size="20" />
+				<input class="button" id="ok" type="submit" value="Enregistrer" size="20" onclick="verifCaractereAutorise()" />
+				<input class="button" id="annuler" type="reset" value="Effacer" size="20" />
 			</p> 
 		</div>
 	</form>

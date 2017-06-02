@@ -7,7 +7,7 @@
 	<div class="corpsForm">
 	<?php if(isset($raison['raison'])) {
 				  if($raison['raison'] != NULL) {
-						echo "<fieldset><legend>Raison du refus</legend>Commentaire : <text id='refuCommentaire'>".$raison['raison']."</text></fieldset></br>";
+						echo "<fieldset><legend>Raison du refus</legend>Commentaire : <text id='refuCommentaire'>".$raison['raison']."</text></fieldset><br>";
 				  }
 				  }
 	?>
@@ -39,14 +39,14 @@
 								<input name="lesFrais['.$idFrais.']" disabled="disabled" type="text" id="'.$idFrais.'" size="10" maxlength="5" value="'.$quantite.'" onchange="calculTotal('.$idFrais.')" />
 							</td>
 							<td>
-								<input name="lesMontants['.$idFrais.']" disabled="disabled" type="text" id="montant'.$idFrais.'" size="10" maxlength="5" value="'.$montant.'"/>
+								<input name="lesMontants['.$idFrais.']" disabled="disabled" type="text" id="montant'.$idFrais.'" size="10" maxlength="5" value="'.$montant.'"/>€
 							</td>
 						</tr>
 						';
 					}
 				?>
 				</table>
-				</br>
+				<br>
 			<text>*Montants sous réserve de validation</text>
 		</fieldset>
 		<p></p>

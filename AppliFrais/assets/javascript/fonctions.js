@@ -3,8 +3,7 @@ function calculTotal(idFrais){
 	var qte = document.getElementById(id).value;
 	var montant = document.getElementById("montant"+id).value;
 	
-	if (isNaN(montant) || isNaN(qte)) 
-	{
+	if (isNaN(montant) || isNaN(qte)){
 		if (isNaN(qte)){
 			document.getElementById(id).style.color='red';
 			document.getElementById("erreurSaisi").innerHTML ="Caractère(s) non valide(s) pour la quantité";
@@ -13,7 +12,7 @@ function calculTotal(idFrais){
 		if(isNaN(montant)){
 			document.getElementById("montant"+id).style.color='red';
 			document.getElementById("erreurSaisi").innerHTML ="Caractère(s) non valide(s) pour le montant";
-		}		
+		}	
 	}else{
 		document.getElementById(id).style.color='black';
 		document.getElementById("montant"+id).style.color='black';

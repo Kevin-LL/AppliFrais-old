@@ -10,7 +10,7 @@
 	<div class="corpsForm">
 	<?php if(isset($raison['raison'])) {
 				  if($raison['raison'] != NULL) {
-						echo "<fieldset><legend>Raison du refus</legend>Commentaire : <text id='refuCommentaire'>".$raison['raison']."</text></fieldset></br>";
+						echo "<fieldset><legend>Raison du refus</legend>Commentaire : <text id='refuCommentaire'>".$raison['raison']."</text></fieldset><br>";
 				  }
 				  }
 	?>
@@ -61,15 +61,15 @@
 				<td><label id="totalfinal">0</label></td>
 				</tr>
 				</table>
-				</br>
+				<br>
 				<div id="erreurSaisi"></div>
 				<text>*Montants sous réserve de validation</text>
 			</fieldset>
 		</div>
 		<div class="piedForm">
 			<p>
-				<input id="ok" type="submit" value="Enregistrer" size="20" />
-				<input id="annuler" type="reset" value="Effacer" size="20" />
+				<input class="button" id="ok" type="submit" value="Enregistrer" size="20" />
+				<input class="button" id="annuler" type="reset" value="Effacer" size="20" />
 			</p> 
 		</div>
 	</form>
@@ -156,8 +156,8 @@
 		</div>
 		<div class="piedForm">
 			<p>
-				<input id="ajouter" type="submit" value="Ajouter" size="20" />
-				<input id="effacer" type="reset" value="Effacer" size="20" />
+				<input class="button" id="ajouter" type="submit" value="Ajouter" size="20" />
+				<input class="button" id="effacer" type="reset" value="Effacer" size="20" />
 			</p> 
 		</div>
 	</form>

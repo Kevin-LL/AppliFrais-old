@@ -91,10 +91,16 @@ ul#menuList a {
     display:block;
     text-decoration:none;
     width:100%;
+	padding: 4px 0px 4px 0px;
+	border-radius: 2px;
 }
 ul#menuList a:hover {
     background: rgb(0,85,227);
     color: white;
+}
+
+ul#menuList li:nth-child(4) a:hover {
+    background: tomato;
 }
 
 #entete #logoGSB {
@@ -159,7 +165,7 @@ form {
   text-align:right;
   width:25%;
 	margin: 0;
-	padding: 0 .5em 0 0;
+	padding: 0 0 0 .5em;
 	line-height: 1.8;	
 }
 input, button, textarea, select{
@@ -345,4 +351,21 @@ table.listeLegere th.eltForfait{
 
 #montantETP, #montantKM, #montantNUI, #montantREP{
 text-align:right;
+}
+
+.button {
+	background-color: #0087AF;
+	border: none;
+	color: #EEEEEE;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 2px 10px 2px 10px;
+}
+
+.button:hover {
+	background-color: #00B6EA;
+}
+
+.button:active {
+  background-color: #005E79;
 }

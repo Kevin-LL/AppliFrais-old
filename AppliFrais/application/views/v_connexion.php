@@ -18,8 +18,8 @@
 			<input id="mdp"  type="password"  name="mdp" size="30" maxlength="45"/>
 		</p>
 		<p>
-			<input type="submit" value="Valider" name="valider"/>
-			<input type="reset" value="Annuler" name="annuler"/> 
+			<input class="button" type="submit" value="Valider" name="valider"/>
+			<input class="button" type="reset" value="Annuler" name="annuler"/> 
 		</p>
 	</form>
 

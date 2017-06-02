@@ -10,16 +10,16 @@
 	<div class="corpsForm">
 		<fieldset>
 		<legend>Ajouter un commentaire</legend>
-		</br>
+		<br>
 		<textarea style="height:60px; width:220px; max-height:160px; max-width:460px;" id="commentaire" type="text" name="commentaire" size="30" maxlength="256"></textarea>
-		</br></br>
-		<input type="submit" value="Confirmer le refus" name="valider"/>
-		<input id="annuler" type="reset" value="Effacer"/>
+		<br><br>
+		<input class="button" type="submit" value="Confirmer le refus" name="valider"/>
+		<input class="button" id="annuler" type="reset" value="Effacer"/>
 		</fieldset>
 	</div>
 	</form>
 	<form action="<?php echo $path.'c_comptable/fichesComptable';?>" method="post">
-	<input type="submit" value="Retour" name="Retour"/>
+	<input class="button" type="submit" value="Retour" name="Retour"/>
 	</form>
 </p>
 </div>
