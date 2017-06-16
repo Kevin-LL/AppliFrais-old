@@ -119,7 +119,6 @@ class A_comptable extends CI_Model {
 
 		$data['numAnnee'] = substr( $mois,0,4);
 		$data['numMois'] = substr( $mois,4,2);
-		$data['mois'] = $mois;
 		$data['idVisiteur'] = $idVisiteur;
 	    $this->templates->load('t_comptable', 'v_comRefuFiche', $data);
 	}

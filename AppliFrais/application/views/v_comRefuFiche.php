@@ -6,7 +6,7 @@
 <div id="contenu">
 	<h2>Refuser la fiche de frais du mois <?php echo $numMois."-".$numAnnee; ?> | Identifiant visiteur: <?php echo $idVisiteur ?></h2>
 <p>
-	<form action="<?php echo $path.'c_comptable/refuConfirm/'.$mois.'/'.$idVisiteur;?>" method="post">
+	<form method="post" action="<?php echo base_url("c_comptable/refuConfirm/".$numAnnee.$numMois.'/'.$idVisiteur);?>">
 	<div class="corpsForm">
 		<fieldset>
 		<legend>Ajouter un commentaire</legend>
@@ -18,7 +18,7 @@
 		</fieldset>
 	</div>
 	</form>
-	<form action="<?php echo $path.'c_comptable/fichesComptable';?>" method="post">
+	<form method="post" action="<?php echo base_url("c_comptable/fichesComptable");?>">
 	<input class="button" type="submit" value="Retour" name="Retour"/>
 	</form>
 </p>

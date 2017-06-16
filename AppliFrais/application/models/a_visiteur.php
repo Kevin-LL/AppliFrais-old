@@ -137,6 +137,7 @@ class A_visiteur extends CI_Model {
 		$montant = $uneLigne['montant'];
 
 		$this->dataAccess->creeLigneHorsForfait($idVisiteur,$mois,$libelle,$dateFrais,$montant);
+		$this->dataAccess->recalculeMontantFiche($idVisiteur,$mois);
 	}
 
 	/**
@@ -150,5 +151,6 @@ class A_visiteur extends CI_Model {
 	{	// TODO : s'assurer que les paramètres reçus sont cohérents avec ceux mémorisés en session et cohérents entre eux
 
 	    $this->dataAccess->supprimerLigneHorsForfait($idLigneFrais);
+		$this->dataAccess->recalculeMontantFiche($idVisiteur,$mois);
 	}
 }
